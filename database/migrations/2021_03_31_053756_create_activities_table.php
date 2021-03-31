@@ -17,7 +17,7 @@ class CreateActivitiesTable extends Migration
             $table->id();
             $table->text('title');
             $table->longText('content');
-            $table->integer('youtube')->nullable();
+            $table->longText('youtube')->nullable();
             $table->integer('month')->nullable();
             $table->integer('day');
             $table->integer('status')->default(1);
