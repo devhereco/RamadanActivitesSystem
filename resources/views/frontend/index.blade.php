@@ -20,26 +20,34 @@
       <!-- <p class="text-muted">Explore the collection of carefully built homepages. More to come soon!</p> -->
     </div>
     <div class="row pt-4">
-  
+  <p><?php echo "Server Time " . date("Y-m-d h:i:s"); ?> (GMT) UTC +0 UK/London</p>
       @forelse($activities as $activity)
       
         <div class="col-sm-2 mb-4">
           <div class="card product-card-alt">
             <div class="product-thumb border">
+              @if($activity->date < now()->subDays(1)->toDateTimeString())
+                <span class="badge bg-danger badge-shadow">غير منجز</span>
+              @endif
+              @if($activity->date > today())
+                <span class="badge bg-info badge-shadow">متبقي</span>
+              @endif
               @if($activity->activity != null)
                 @if($activity->activity->status == 1 && $activity->activity->user_id == Auth::user()->id)
                   <span class="badge bg-success badge-shadow">تم الإنجاز</span>
                 @endif
               @endif
-              <div class="product-card-actions">
-                <a class="btn btn-light btn-icon btn-shadow fs-base mx-2" href="{{route('activity.view', $activity->id)}}"><i class="ci-eye"></i></a>
-              </div>
-              <a class="product-thumb-overlay" href="{{route('activity.view', $activity->id)}}"></a>
+                @if($activity->date < today())
+                  <div class="product-card-actions">
+                    <a class="btn btn-light btn-icon btn-shadow fs-base mx-2" href="{{route('activity.view', $activity->id)}}"><i class="ci-eye"></i></a>
+                  </div>
+                  <a class="product-thumb-overlay" href="{{route('activity.view', $activity->id)}}"></a>
+                @endif
               <img src="{{ asset('assets/frontend/img/days-card.png') }}" alt="Fashion Store v.1">
             </div>
             <div class="card-body text-center">
               <h3 class="product-title fs-lg pt-2">
-              <a href="{{route('activity.view', $activity->id)}}">اليوم {{ date('d', strtotime($activity->date)) }} من شهر {{ date('m', strtotime($activity->date)) }}</a></h3>
+              <a @if($activity->date < today()) href="{{route('activity.view', $activity->id)}}" @endif>اليوم {{ date('d', strtotime($activity->date)) }} من شهر {{ date('m', strtotime($activity->date)) }}</a></h3>
               <p>{{ $activity->title }}</p>
             </div>
           </div>

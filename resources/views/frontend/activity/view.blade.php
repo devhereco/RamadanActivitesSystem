@@ -17,10 +17,14 @@
                       @if($activity->activity->status == 1 && $activity->activity->user_id == Auth::user()->id)
                         <a readonly class="btn btn-success btn-lg">تم الإنجاز</a>
                       @else
-                        <button type="submit" class="btn btn-warning btn-lg">سجل إنجازي</button>
+                        @if($activity->date > today()->subDays(1)->toDateTimeString())
+                          <button type="submit" class="btn btn-warning btn-lg">سجل إنجازي</button>
+                        @endif
                       @endif
                     @else
-                      <button type="submit" class="btn btn-warning btn-lg">سجل إنجازي</button>
+                      @if($activity->date > today()->subDays(1)->toDateTimeString())
+                        <button type="submit" class="btn btn-warning btn-lg">سجل إنجازي</button>
+                      @endif
                     @endif
                   </div>
                 </form>
