@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'GMT+3',
 
     /*
     |--------------------------------------------------------------------------
@@ -161,8 +161,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Jenssegers\Date\DateServiceProvider::class,
-        'Laravelrus\LocalizedCarbon\LocalizedCarbonServiceProvider',
 
         /*
          * Package Service Providers...
@@ -229,9 +227,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Date' => Jenssegers\Date\Date::class,
-        'LocalizedCarbon' => Laravelrus\LocalizedCarbon\LocalizedCarbon::class,
-        'DiffFormatter'   => Laravelrus\LocalizedCarbon\DiffFactoryFacade::class,       
 
     ],
 
