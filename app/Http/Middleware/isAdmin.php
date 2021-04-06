@@ -17,7 +17,7 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->rule == 'admin') {
+        if (auth()->user()->rule == "admin") {
             return $next($request);
         } else {
             return redirect()->route(
