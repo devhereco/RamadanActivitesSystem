@@ -11,8 +11,6 @@ use Validator;
 // use App\User;
 use App\Models\User;
 
-Date::setLocale('ar');
-
 class IndexController extends Controller
 {
     public function index()
