@@ -27,7 +27,7 @@ class IndexController extends Controller
         $users = User::count();
         $activities = Activity::count();
         $userActivities = UserActivity::count();
-        $user_activities = UserActivity::with('user', 'activity')->orderBy('created_at', 'asc')->take(20)->get();
+        $user_activities = UserActivity::with('user', 'activity')->orderBy('created_at', 'desc')->take(20)->get();
 
         return view('frontend.statics', compact('user_activities', 'userActivities', 'activities', 'users'));
     }
