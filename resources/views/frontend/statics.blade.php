@@ -86,7 +86,11 @@
                         <tr>
                             <th scope="row">1</th>
                             <td>{{ $row->user->name }}</td>
-                            <td>{{ $row->activity->title ? : ''  }}</td>
+                            @if(!empty($row->activity->title))
+                                <td>{{ $row->activity->title}}</td>
+                            @else
+                                <td>تم حذف الإنجاز من قبل الإدارة</td>
+                            @endif  
                             <td>{{ date('M d, Y', strtotime($row->created_at)) }} الساعة {{ date('g:i A',strtotime($row->created_at)) }}</td>
                         </tr>
                     @endforeach
