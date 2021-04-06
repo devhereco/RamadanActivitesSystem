@@ -10,7 +10,6 @@ use Carbon\Carbon;
 use Validator;
 // use App\User;
 use App\Models\User;
-use Jenssegers\Date\Date;
 
 Date::setLocale('ar');
 
@@ -18,10 +17,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        Carbon::setLocale('ar');
-        // echo Carbon::now()->addYear()->diffForHumans(); 
         $this_month = Carbon::now()->month;
-        // dd($this_month);
         $activities = Activity::where('status', '=', 1)->whereMonth('date', $this_month)->orderBy('date', 'asc')->get();
         $user_activities = UserActivity::get();
 
