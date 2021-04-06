@@ -38,7 +38,8 @@
               <img src="{{ asset('assets/frontend/img/days-card.png') }}" alt="Fashion Store v.1">
             </div>
             <div class="card-body text-center">
-              <h3 class="product-title fs-lg pt-2"><a href="{{route('activity.view', $activity->id)}}">اليوم {{ $activity->day }}</a></h3>
+              <h3 class="product-title fs-lg pt-2">
+              <a href="{{route('activity.view', $activity->id)}}">اليوم {{ date('d', strtotime($activity->date)) }} من شهر {{ date('m', strtotime($activity->date)) }}</a></h3>
               <p>{{ $activity->title }}</p>
             </div>
           </div>

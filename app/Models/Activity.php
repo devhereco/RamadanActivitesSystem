@@ -13,4 +13,8 @@ class Activity extends Model
     {
         return $this->belongsTo(UserActivity::class, 'id', 'activity_id');
     }
+
+    public function user() {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }

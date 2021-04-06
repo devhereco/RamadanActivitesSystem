@@ -21,6 +21,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/', 'App\Http\Controllers\IndexController@index')->name('home');
     Route::get('/activity/{id}', 'App\Http\Controllers\IndexController@activity_view')->name('activity.view');
     Route::post('/activity/save_progress', 'App\Http\Controllers\IndexController@save_progress')->name('activity.save.progress');
+    Route::get('/statics', 'App\Http\Controllers\IndexController@statics')->name('activity.statics');
 });
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {

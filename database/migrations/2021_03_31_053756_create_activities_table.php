@@ -19,7 +19,7 @@ class CreateActivitiesTable extends Migration
             $table->longText('content');
             $table->longText('youtube')->nullable();
             $table->integer('month')->nullable();
-            $table->integer('day');
+            $table->date('date');
             $table->integer('status')->default(1);
             $table->timestamps();
         });

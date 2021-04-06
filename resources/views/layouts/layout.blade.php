@@ -91,6 +91,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">قائمة الحسابات</a></li>
                 @endif
               @endif
+              <li class="nav-item"><a class="nav-link" href="{{ route('activity.statics') }}">الإحصائيات العامة</a></li>
             </ul>
           </div>
         </div>

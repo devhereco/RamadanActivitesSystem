@@ -32,7 +32,8 @@
             </div>
             <div class="mb-3">
                 <label for="select-input" class="form-label">إختر اليوم</label>
-                <select class="form-select" name="day" id="select-input">
+                <input class="form-control" name="date" type="date" id="text-input" placeholder="4JoDu1WbXtw">
+                <!-- <select class="form-select" name="day" id="select-input">
                     <option>برجاء إختيار عنصر</option>
                     <option value="1">اليوم 1</option>
                     <option value="2">اليوم 2</option>
@@ -66,7 +67,7 @@
                     <option value="28">اليوم 28</option>
                     <option value="29">اليوم 29</option>
                     <option value="30">اليوم 30</option>
-                </select>
+                </select> -->
             </div>
             <!-- Status -->
             <div class="mb-3">

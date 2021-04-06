@@ -27,7 +27,7 @@ class ActivitiesController extends Controller
             [
                 'title' => 'required',
                 'content' => 'required',
-                'day' => 'required',
+                'date' => 'required',
                 'status' => 'required',
             ]
         );
@@ -38,7 +38,7 @@ class ActivitiesController extends Controller
             $activity->content = request('content');
             $activity->youtube = request('youtube');
             $activity->month = request('month');
-            $activity->day = request('day');
+            $activity->date = request('date');
             $activity->status = request('status');
 
             $activity->save();

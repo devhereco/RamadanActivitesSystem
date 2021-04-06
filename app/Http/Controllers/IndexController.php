@@ -6,16 +6,36 @@ use App\Models\UserActivity;
 use App\Models\Activity;
 use Illuminate\Http\Request;
 use DB;
+use Carbon\Carbon;
 use Validator;
+// use App\User;
+use App\Models\User;
+use Jenssegers\Date\Date;
+
+Date::setLocale('ar');
 
 class IndexController extends Controller
 {
     public function index()
     {
-        $activities = Activity::where('status', '=', 1)->orderBy('day', 'asc')->get();
+        Carbon::setLocale('ar');
+        // echo Carbon::now()->addYear()->diffForHumans(); 
+        $this_month = Carbon::now()->month;
+        // dd($this_month);
+        $activities = Activity::where('status', '=', 1)->whereMonth('date', $this_month)->orderBy('date', 'asc')->get();
         $user_activities = UserActivity::get();
 
         return view('frontend.index', compact('activities', 'user_activities'));
+    }
+
+    public function statics()
+    {
+        $users = User::count();
+        $activities = Activity::count();
+        $userActivities = UserActivity::count();
+        $user_activities = UserActivity::with('user', 'activity')->take(20)->get();
+
+        return view('frontend.statics', compact('user_activities', 'userActivities', 'activities', 'users'));
     }
 
     public function activity_view($id)
