@@ -70,7 +70,7 @@
     
     
         <div class="card text-center mt-4">
-            <div class="card-header">آخر الإنجازات المسجلة</div>
+            <div class="card-header"><strong>آخر الإنجازات المسجلة</strong></div>
             <div class="card-body">
                 <table class="table">
                     <thead>
