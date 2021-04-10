@@ -24,12 +24,22 @@ class IndexController extends Controller
 
     public function statics()
     {
+
+        $mytime = Carbon::today();
+        $checkdate=$mytime->toDateString();
+        // $lead=Lead::whereDate('created_at', $checkdate)->orderBy('created_at', 'desc')->get()
+
+
+
         $users = User::count();
         $activities = Activity::count();
         $userActivities = UserActivity::count();
+        $todayActivities = UserActivity::whereDate('created_at', $checkdate)->count();
         $user_activities = UserActivity::with('user', 'activity')->orderBy('created_at', 'desc')->take(20)->get();
+        $users_male = User::where('gender', 'male')->count();
+        $users_female = User::where('gender', 'female')->count();
 
-        return view('frontend.statics', compact('user_activities', 'userActivities', 'activities', 'users'));
+        return view('frontend.statics', compact('user_activities', 'userActivities', 'activities', 'users', 'users_male', 'users_female', 'todayActivities'));
     }
 
     public function activity_view($id)

@@ -30,14 +30,14 @@
 
     <div class="row pt-4">
         
-        <div class="col-sm-4 mb-4">
+    <div class="col-sm-4 mb-4">
           <div class="card product-card-alt">
             <div class="card bg-secondary">
                 <div class="card-header text-center">
                     <strong>عدد النشاطات المضافة </strong>
                 </div>
                 <div class="card-body">
-                    <h1 class="card-title text-center"><strong>{{ $activities }}</strong><p class="fs-md">نشاط مضاف</p></h1>
+                    <h1 class="card-title text-center"><strong>{{ $activities }}</strong><p class="fs-md">عدد الاوراد</p></h1>
                 </div>
             </div>
           </div>
@@ -66,10 +66,46 @@
             </div>
           </div>
         </div>
-        
+
+        <div class="col-sm-4 mb-4">
+          <div class="card product-card-alt">
+            <div class="card bg-secondary">
+                <div class="card-header text-center">
+                    <strong>عدد المستخديمن الإناث </strong>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title text-center"><strong>{{ $users_female }}</strong><p class="fs-md">مستخدمة</p></h1>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 mb-4">
+          <div class="card product-card-alt">
+            <div class="card bg-secondary">
+                <div class="card-header text-center">
+                    <strong>عدد المستخدمين الذكور</strong>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title text-center"><strong>{{ $users_male }}</strong><p class="fs-md">مستخدمة</p></h1>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 mb-4">
+          <div class="card product-card-alt">
+            <div class="card bg-secondary">
+                <div class="card-header text-center">
+                    <strong>عدد منجزين ورد اليوم</strong>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title text-center"><strong>{{ $todayActivities }}</strong><p class="fs-md">منجز / منجزة للورد</p></h1>
+                </div>
+            </div>
+          </div>
+        </div>        
     
     
-        <div class="card text-center mt-4">
+        {{-- <div class="card text-center mt-4">
             <div class="card-header"><strong>آخر الإنجازات المسجلة</strong></div>
             <div class="card-body">
                 <table class="table">
@@ -97,7 +133,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div> --}}
     </div>
   </section>
    

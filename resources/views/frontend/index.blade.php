@@ -1,7 +1,9 @@
 @extends('layouts.layout')
 
 @section('content')
-
+  @php 
+    $index = 1;
+  @endphp
   <!-- Hero section-->
   <section class="bg-accent bg-position-center bg-size-cover" style="background-image: url(img/intro/intro-hero.jpg);">
     <div class="container">
@@ -13,51 +15,40 @@
         </div>
     </div>
   </section>
-  <!-- Demos section-->
   <section class="container pt-5 pb-3 pb-lg-5" id="tasks">
     <div class="text-center pt-md-4 pb-2">
       <h2><span class='fw-light'>مرحباً</span> {{ Auth::user()->name }}</h2>
-      <!-- <p class="text-muted">Explore the collection of carefully built homepages. More to come soon!</p> -->
     </div>
     <div class="row pt-4">
-  <p><?php echo "Server Time " . date("Y-m-d h:i:s"); ?> (GMT) UTC +0 UK/London</p>
       @forelse($activities as $activity)
-      
-        <div class="col-sm-2 mb-4">
-          <div class="card product-card-alt">
-            <div class="product-thumb border">
-              @if($activity->date < now()->subDays(1)->toDateTimeString())
-                <span class="badge bg-danger badge-shadow">غير منجز</span>
-              @endif
-              @if($activity->date > today())
-                <span class="badge bg-info badge-shadow">متبقي</span>
-              @endif
-              @if($activity->activity != null)
-                @if($activity->activity->status == 1 && $activity->activity->user_id == Auth::user()->id)
-                  <span class="badge bg-success badge-shadow">تم الإنجاز</span>
+        <div class="col-2 mb-3">
+          <a @if($activity->date < today()) href="{{route('activity.view', $activity->id)}}" @endif>
+            @if($activity->activity != null)
+              @if($activity->activity->status == 1)
+                @if($activity->activity->user_id == Auth::user()->id && $activity->activity->created_at < $activity->date)
+                  <div class="card text-warning bg-faded-warning border-warning">
+                @elseif($activity->activity->user_id == Auth::user()->id)
+                  <div class="card text-success bg-faded-success border-success">
                 @endif
               @endif
-                @if($activity->date < today())
-                  <div class="product-card-actions">
-                    <a class="btn btn-light btn-icon btn-shadow fs-base mx-2" href="{{route('activity.view', $activity->id)}}"><i class="ci-eye"></i></a>
-                  </div>
-                  <a class="product-thumb-overlay" href="{{route('activity.view', $activity->id)}}"></a>
-                @endif
-              <img src="{{ asset('assets/frontend/img/days-card.png') }}" alt="Fashion Store v.1">
+            @elseif($activity->date < now()->subDays(1)->toDateTimeString())
+              <div class="card text-danger bg-faded-danger border-danger">
+            @elseif($activity->date > today())
+              <div class="card text-dark bg-faded-dark border-dark">
+            @else
+              <div class="card text-info bg-faded-info border-info">
+            @endif
+              <div class="card-body">
+                <p class="card-text fs-sm custom-days">اليوم {{ date('d', strtotime($activity->date)) }}</p>
+              </div>
             </div>
-            <div class="card-body text-center">
-              <h3 class="product-title fs-lg pt-2">
-              <a @if($activity->date < today()) href="{{route('activity.view', $activity->id)}}" @endif>اليوم {{ date('d', strtotime($activity->date)) }} من شهر {{ date('m', strtotime($activity->date)) }}</a></h3>
-              <p>{{ $activity->title }}</p>
-            </div>
-          </div>
+          </a>
         </div>
       @empty
 
       @endforelse
-      
+    </div>
   </section>
-   
 @endsection
    
     

@@ -36,6 +36,34 @@
             <div class="invalid-tooltip">الرجاء كتابة بريدك الإلكتروني بشكل صحيح</div>
             <div class="valid-tooltip">صحيح!</div>
           </div>
+          <div class="col-md-4 mb-3">
+            <label for="gender" class="form-label">الجنسية</label>
+            <select class="form-select" name="gender" required id="gender">
+              <option disabled selected></option>
+              <option value="male">ذكر</option>
+              <option value="female">أنثى</option>
+            </select>
+            <div class="invalid-tooltip">الرجاء إختيار الجنسية</div>
+            <div class="valid-tooltip">صحيح!</div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="nationality" class="form-label">الجنسية</label>
+            <select class="form-select" name="nationality" required id="nationality">
+              <option disabled selected></option>
+              @foreach($countries as $row)
+                <option value="{{ $row->code }}">{{ $row->name }}</option>
+              @endforeach
+            </select>
+            <div class="invalid-tooltip">الرجاء إختيار الجنسية</div>
+            <div class="valid-tooltip">صحيح!</div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="datepicker" class="form-label">سنة الميلاد</label>
+            <input class="form-control" type="text" id="datepicker" name="birthday" required>
+            <div class="invalid-tooltip">الرجاء إختيار سنة الميلاد</div>
+            <div class="valid-tooltip">صحيح!</div>
+          </div>
+
           <div class="col-md-6 mb-3">
             <label for="validationTooltip01" class="form-label">كلمة المرور</label>
             <input class="form-control" type="password" id="validationTooltip01" placeholder="* * * * * *" name="password" required autocomplete="new-password">
@@ -53,4 +81,17 @@
       </form>
     </div>
   </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet"/>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script>
+    $("#datepicker").datepicker( {
+        format: " yyyy", // Notice the Extra space at the beginning
+        viewMode: "years", 
+        minViewMode: "years"
+    });
+  </script>
 @endsection

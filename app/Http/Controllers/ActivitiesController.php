@@ -32,8 +32,19 @@ class ActivitiesController extends Controller
             ]
         );
         if(!$validator->fails()){ 
-
             $activity = new Activity;
+            if ($request->audioFile != null){
+                $file = $request->file('audioFile');
+                $filename = $file->getClientOriginalName();
+                $filename = time() . '.' . $filename;
+                
+                $path = $file->storeAs('public', $filename);
+                $path_db = 'storage'. '/' . $filename;
+                $activity->audioFile = $path_db;
+            }
+
+            
+            
             $activity->title = request('title');
             $activity->content = request('content');
             $activity->youtube = request('youtube');

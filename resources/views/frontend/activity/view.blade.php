@@ -13,7 +13,7 @@
                   <input type="hidden" name="activity_id" value="{{ $activity->id }}">
                   <div class="py-4 py-sm-5">
                     <a class="btn btn-primary btn-lg" href="{{ route('home') }}">عرض المهام</a>
-                    @if($activity->activity != null)
+                    <!-- @if($activity->activity != null)
                       @if($activity->activity->status == 1 && $activity->activity->user_id == Auth::user()->id)
                         <a readonly class="btn btn-success btn-lg">تم الإنجاز</a>
                       @else
@@ -25,7 +25,8 @@
                       @if($activity->date > today()->subDays(1)->toDateTimeString())
                         <button type="submit" class="btn btn-warning btn-lg">سجل إنجازي</button>
                       @endif
-                    @endif
+                    @endif -->
+                    <button type="submit" class="btn btn-warning btn-lg">سجل إنجازي</button>
                   </div>
                 </form>
             </div>
@@ -38,7 +39,13 @@
       <h2>{{ $activity->title }}</h2>
       <p class="text-muted">{{ $activity->content }}</p>
     </div>
-    
+
+    <audio controls>
+      <source src="/{{ $activity->audioFile }}" type="audio/mpeg">
+    </audio>
+
+
+    </div>
     @if($activity->youtube != null)
     <iframe 
       width="560" 
