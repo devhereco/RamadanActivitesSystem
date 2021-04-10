@@ -24,12 +24,14 @@
         <div class="col-2 mb-3">
           <a @if($activity->date < today()) href="{{route('activity.view', $activity->id)}}" @endif>
             @if($activity->activity != null)
-              @if($activity->activity->status == 1)
-                @if($activity->activity->user_id == Auth::user()->id && $activity->activity->created_at < $activity->date)
+              @if($activity->activity->status == 1 && $activity->activity->user_id == Auth::user()->id)
+                @if($activity->activity->created_at < $activity->date)
                   <div class="card text-warning bg-faded-warning border-warning">
                 @elseif($activity->activity->user_id == Auth::user()->id)
                   <div class="card text-success bg-faded-success border-success">
                 @endif
+              @else
+                <div class="card text-danger bg-faded-danger border-danger">
               @endif
             @elseif($activity->date < now()->subDays(1)->toDateTimeString())
               <div class="card text-danger bg-faded-danger border-danger">
