@@ -10,4 +10,7 @@ class Country extends Model
     use HasFactory;
     protected $table = "countries";
 
+    public function nationality() {
+        return $this->belongsTo(User::class, 'code', 'nationality');
+    }
 }

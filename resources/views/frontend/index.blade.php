@@ -8,9 +8,9 @@
   <section class="bg-accent bg-position-center bg-size-cover" style="background-image: url(img/intro/intro-hero.jpg);">
     <div class="container">
         <div class="row pt-md-5 justify-content-center">
-            <div class="col-xl-7 col-lg-8 col-md-10 text-center py-xl-3">
-                <h1 class="text-light"><span class='fw-light'><strong>قائمة المهام</strong></h1>
-                <div class="py-4 py-sm-5"><a class="btn btn-primary btn-lg" id="tasks" data-scroll>عرض المهام</a></div>
+            <div class="col-xl-7 col-lg-8 col-md-10 text-center py-xl-3 my-3">
+                <h1 class="text-light"><span class='fw-light'><strong>قائمة الأوراد</strong></h1>
+                <div class="py-4 py-sm-5"><a class="btn btn-primary btn-lg" id="tasks" data-scroll>عرض الأوراد</a></div>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
     </div>
     <div class="row pt-4">
       @forelse($activities as $activity)
-        <div class="col-2 mb-3">
+        <div class="col-sm-2 mb-3">
           <a @if($activity->date < today()) href="{{route('activity.view', $activity->id)}}" @endif>
             @if($activity->activity != null)
               @if($activity->activity->status == 1 && $activity->activity->user_id == Auth::user()->id)

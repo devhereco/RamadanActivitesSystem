@@ -33,11 +33,10 @@
             <div class="mb-3">
                 <label for="select-input" class="form-label">إختر اليوم</label>
                 <input class="form-control" name="date" type="date" id="text-input" placeholder="4JoDu1WbXtw">
-               
             </div>
             <!-- Status -->
             <div class="mb-3">
-                <label for="select-input" class="form-label">Select</label>
+                <label for="select-input" class="form-label">الحالة</label>
                 <select class="form-select" name="status" id="select-input">
                     <option value="1">تفعيل - عرض</option>
                     <option value="0">إيقاف - إخفاء</option>
@@ -45,8 +44,8 @@
             </div>
              <!-- Status -->
              <div class="mb-3">
-                <label for="select-input" class="form-label">Select</label>
-                <input class="form-control" name="audioFile" type="file" id="text-input">
+                <label for="select-input" class="form-label">رفع ملف صوتي</label>
+                <input class="form-control" name="audioFile" type="file" id="text-input" accept="audio/mp3"/>>
             </div>
             <button type="submit" class="btn btn-primary">إنشاء</button>
         </form>

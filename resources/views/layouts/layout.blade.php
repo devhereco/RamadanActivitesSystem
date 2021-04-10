@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- SEO Meta Tags-->
-    <meta name="description" content="Cartzilla - Bootstrap E-commerce Template">
+    <meta name="description" content="{{ config('app.name', 'المنصة') }} - Bootstrap E-commerce Template">
     <meta name="keywords" content="bootstrap, shop, e-commerce, market, modern, responsive,  business, mobile, bootstrap, html5, css3, js, gallery, slider, touch, creative, clean">
     <meta name="author" content="Createx Studio">
     <!-- Viewport-->
@@ -51,10 +51,10 @@
     <header class="bg-light shadow-sm navbar-sticky">
       <div class="navbar navbar-expand-lg navbar-light">
         <div class="container"><a class="navbar-brand d-none d-sm-block me-4 order-lg-1" href="{{ route('home') }}">
-          <img src="{{ asset('assets/frontend/img/logo-dark.png') }}" width="142" alt="Cartzilla"></a>
-          <a class="navbar-brand d-sm-none ms-xl-2 order-lg-1" href="{{ route('home') }}">
-            <img src="img/logo-icon.png" width="74" alt="Cartzilla">
-          </a>
+          <img src="{{ asset('assets/frontend/img/logo-dark.png') }}" width="142" alt="{{ config('app.name', 'المنصة') }}"></a>
+          <!-- <a class="navbar-brand d-sm-none ms-xl-2 order-lg-1" href="{{ route('home') }}">
+            <img src="img/logo-icon.png" width="74" alt="{{ config('app.name', 'المنصة') }}">
+          </a> -->
           <div class="navbar-toolbar d-flex align-items-center order-lg-3">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -103,18 +103,30 @@
 
     <!-- Footer-->
     <footer class="border-top py-5">
-      <!-- <div class="container text-center pt-3 pt-lg-4"> -->
-        <!-- <h3 class="fw-light">Still not convinced?</h3> -->
-        <!-- <h2 class="pb-4">Add premium support and lifetime updates to this.</h2><a class="btn btn-primary btn-lg" href="https://themes.getbootstrap.com/product/cartzilla-bootstrap-e-commerce-template-ui-kit/" target="_blank" rel="noopener"><i class="ci-cart ms-xl-2"></i>Buy Cartzilla</a> -->
-        <!-- <hr class="my-5"> -->
         <div class="fs-ms text-muted text-center">©جميع الحقوق محفوظة. تصميم وبرمجة <a class="text-muted" href="https://devhere.co/" target="_blank" rel="noopener">التطوير هنا</a></div>
       </div>
     </footer>
     <!-- Toolbar for handheld devices (Default)-->
     <div class="handheld-toolbar">
-      <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item" href="account-wishlist.html"><span class="handheld-toolbar-icon"><i class="ci-heart"></i></span><span class="handheld-toolbar-label">Wishlist</span></a><a class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" onclick="window.scrollTo(0, 0)"><span class="handheld-toolbar-icon"><i class="ci-menu"></i></span><span class="handheld-toolbar-label">Menu</span></a><a class="d-table-cell handheld-toolbar-item" href="shop-cart.html"><span class="handheld-toolbar-icon"><i class="ci-cart"></i><span class="badge bg-primary rounded-pill ms-1">4</span></span><span class="handheld-toolbar-label">$265.00</span></a></div>
-    </div>
-    <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm ms-xl-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">   </i></a>
+      <div class="d-table table-layout-fixed w-100">
+        <a class="d-table-cell handheld-toolbar-item" href="{{ route('home') }}">
+          <span class="handheld-toolbar-icon"><i class="ci-book"></i></span><span class="handheld-toolbar-label">الأوراد</span></a>
+        <a class="d-table-cell handheld-toolbar-item" href="{{ route('activity.statics') }}">
+          <span class="handheld-toolbar-icon"><i class="ci-view-grid"></i></span><span class="handheld-toolbar-label">الإحصائيات</span></a>
+        @guest
+          @if (Route::has('login'))
+            <a class="d-table-cell handheld-toolbar-item" href="{{ route('login') }}">
+              <span class="handheld-toolbar-icon"><i class="ci-sign-in"></i></span><span class="handheld-toolbar-label">دخول</span></a>    
+          @endif
+          @if (Route::has('register'))
+          <a class="d-table-cell handheld-toolbar-item" href="{{ route('register') }}">
+              <span class="handheld-toolbar-icon"><i class="ci-add-user"></i></span><span class="handheld-toolbar-label">تسجيل</span></a>    
+          @endif
+        @else
+          <a class="d-table-cell handheld-toolbar-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <span class="handheld-toolbar-icon"><i class="ci-sign-out"></i></span><span class="handheld-toolbar-label">خروج</span></a>
+        @endif
+      </div>
     <!-- Vendor scrits: js libraries and plugins-->
     <script src="{{ asset('assets/frontend/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/frontend/vendor/simplebar/dist/simplebar.min.js') }}"></script>

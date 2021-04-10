@@ -42,9 +42,6 @@ class ActivitiesController extends Controller
                 $path_db = 'storage'. '/' . $filename;
                 $activity->audioFile = $path_db;
             }
-
-            
-            
             $activity->title = request('title');
             $activity->content = request('content');
             $activity->youtube = request('youtube');
@@ -75,7 +72,7 @@ class ActivitiesController extends Controller
             [
                 'title' => 'required',
                 'content' => 'required',
-                'day' => 'required',
+                'date' => 'required',
                 'status' => 'required',
             ]
         );
@@ -87,25 +84,28 @@ class ActivitiesController extends Controller
                 $activity = new Activity();
                 $activity->id = request('activity_id');
             }
+            if ($request->audioFile != null){
+                $file = $request->file('audioFile');
+                $filename = $file->getClientOriginalName();
+                $filename = time() . '.' . $filename;
+                
+                $path = $file->storeAs('public', $filename);
+                $path_db = 'storage'. '/' . $filename;
+                $activity->audioFile = $path_db;
+            }
             $activity->title = request('title');
             $activity->content = request('content');
-            $activity->day = request('day');
+            $activity->youtube = request('youtube');
+            $activity->month = request('month');
+            $activity->date = request('date');
             $activity->status = request('status');
 
             $activity->save();
 
-            if (app()->getLocale() == 'en') {
-                return redirect()->back()->with(['success' => 'Your message was successfully sent to the relevant department!']);
-            } else {
-                return redirect()->back()->with(['success' => 'تم بنجاح ، إرسال رسالتك إلى القسم المختص!']);
-            } 
+            return redirect()->back()->with(['success' => 'تم الإنشاء بنجاح!']);
         }else{
-            if (app()->getLocale() == 'en') {
-                return redirect()->back()->with(['warning' => 'Submission failed, please try again!']);
-            } else {
-                return redirect()->back()->with(['warning' => 'فشل الإرسال، الرجاء المحاولة مجدداً!']);
-            }   
-         } 
+            return redirect()->back()->with(['warning' => 'فشل الإرسال، الرجاء المحاولة مجدداً!']);
+        } 
     }
 
     public function destroy($id)

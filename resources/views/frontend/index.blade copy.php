@@ -7,8 +7,8 @@
     <div class="container">
         <div class="row pt-md-5 justify-content-center">
             <div class="col-xl-7 col-lg-8 col-md-10 text-center py-xl-3">
-                <h1 class="text-light"><span class='fw-light'><strong>قائمة المهام</strong></h1>
-                <div class="py-4 py-sm-5"><a class="btn btn-primary btn-lg" id="tasks" data-scroll>عرض المهام</a></div>
+                <h1 class="text-light"><span class='fw-light'><strong>قائمة الأوراد</strong></h1>
+                <div class="py-4 py-sm-5"><a class="btn btn-primary btn-lg" id="tasks" data-scroll>عرض الأوراد</a></div>
             </div>
         </div>
     </div>

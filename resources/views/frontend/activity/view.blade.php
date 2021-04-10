@@ -6,13 +6,13 @@
   <section class="bg-accent bg-position-center bg-size-cover" style="background-image: url(img/intro/intro-hero.jpg);">
     <div class="container">
         <div class="row pt-md-5 justify-content-center">
-            <div class="col-xl-7 col-lg-8 col-md-10 text-center py-xl-3">
-                <h1 class="text-light"><span class='fw-light'><strong>قائمة المهام</strong></h1>
+            <div class="col-xl-7 col-lg-8 col-md-10 text-center py-xl-3 my-3">
+                <h1 class="text-light"><span class='fw-light'><strong>قائمة الأوراد</strong></h1>
                 <form action="{{ route('activity.save.progress') }}" method="post">
                   @csrf
                   <input type="hidden" name="activity_id" value="{{ $activity->id }}">
                   <div class="py-4 py-sm-5">
-                    <a class="btn btn-primary btn-lg" href="{{ route('home') }}">عرض المهام</a>
+                    <a class="btn btn-primary btn-lg" href="{{ route('home') }}">عرض الأوراد</a>
                     <!-- @if($activity->activity != null)
                       @if($activity->activity->status == 1 && $activity->activity->user_id == Auth::user()->id)
                         <a readonly class="btn btn-success btn-lg">تم الإنجاز</a>
@@ -40,9 +40,11 @@
       <p class="text-muted">{{ $activity->content }}</p>
     </div>
 
-    <audio controls>
-      <source src="/{{ $activity->audioFile }}" type="audio/mpeg">
-    </audio>
+    @if($activity->audioFile != null)
+      <audio controls>
+        <source src="/{{ $activity->audioFile }}" type="audio/mpeg">
+      </audio>
+    @endif
 
 
     </div>

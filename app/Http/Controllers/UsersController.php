@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Country;
 use Illuminate\Http\Request;
 use DB;
 
@@ -11,9 +12,10 @@ class UsersController extends Controller
     public function index()
     {
         // $users['customers'] = User::all();
-        $users = User::orderBy('id', 'desc')->get(); 
+        $users = User::with('country')->orderBy('id', 'desc')->get(); 
+        $countries = Country::get();
 
-        return view('admin/users/index', compact('users'));
+        return view('admin/users/index', compact('users', 'countries'));
     }
 
     public function destroy($id)
