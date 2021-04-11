@@ -44,6 +44,7 @@ class ActivitiesController extends Controller
             }
             $activity->title = request('title');
             $activity->content = request('content');
+            $activity->day = request('day');
             $activity->youtube = request('youtube');
             $activity->month = request('month');
             $activity->date = request('date');
@@ -96,6 +97,7 @@ class ActivitiesController extends Controller
             $activity->title = request('title');
             $activity->content = request('content');
             $activity->youtube = request('youtube');
+            $activity->day = request('day');
             $activity->month = request('month');
             $activity->date = request('date');
             $activity->status = request('status');

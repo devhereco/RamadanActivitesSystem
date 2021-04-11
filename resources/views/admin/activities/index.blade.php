@@ -33,7 +33,7 @@
                         <th scope="row">1</th>
                         <td>{{ $activity->title }}</td>
                         <td>اليوم {{ $activity->day }}</td>
-                        <td>{{ $activity->content }}</td>
+                        <td>{{ Str::limit($activity->content, 100) }}</td>
                         <td><a class="btn btn-info" href="{{ route('activity.edit',$activity->id) }}">تعديل</a></td>
                         <td><a class="btn btn-danger" onclick="return confirm('Are you sure?')" href="{{route('activity.destroy', $activity->id)}}" type="submit">حذف</a></td>
                     </tr>

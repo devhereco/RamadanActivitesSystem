@@ -25,7 +25,7 @@
         @csrf
         <div class="row">
         <div class="col-md-6 mb-3">
-            <label for="validationTooltip01" class="form-label">First name</label>
+            <label for="validationTooltip01" class="form-label">الاسم الأول</label>
             <input class="form-control" type="text" id="validationTooltip01" placeholder="أحمد محمد صالح" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
             <div class="invalid-tooltip">الرجاء كتابة إسمك بشكل صحيح</div>
             <div class="valid-tooltip">صحيح!</div>
@@ -37,7 +37,7 @@
             <div class="valid-tooltip">صحيح!</div>
           </div>
           <div class="col-md-4 mb-3">
-            <label for="gender" class="form-label">الجنسية</label>
+            <label for="gender" class="form-label">الجنس</label>
             <select class="form-select" name="gender" required id="gender">
               <option disabled selected></option>
               <option value="male">ذكر</option>

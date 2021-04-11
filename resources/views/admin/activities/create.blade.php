@@ -31,6 +31,10 @@
                 <input class="form-control" name="youtube" type="text" id="text-input" placeholder="4JoDu1WbXtw">
             </div>
             <div class="mb-3">
+                <label for="text-input" class="form-label">أكتب اليوم</label>
+                <input class="form-control" name="day" type="text" id="text-input" placeholder="1">
+            </div>
+            <div class="mb-3">
                 <label for="select-input" class="form-label">إختر اليوم</label>
                 <input class="form-control" name="date" type="date" id="text-input" placeholder="4JoDu1WbXtw">
             </div>

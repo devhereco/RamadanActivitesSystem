@@ -51,7 +51,7 @@
     <header class="bg-light shadow-sm navbar-sticky">
       <div class="navbar navbar-expand-lg navbar-light">
         <div class="container"><a class="navbar-brand d-none d-sm-block me-4 order-lg-1" href="{{ route('home') }}">
-          <img src="{{ asset('assets/frontend/img/logo-dark.png') }}" width="142" alt="{{ config('app.name', 'المنصة') }}"></a>
+          <img src="{{ asset('assets/frontend/img/logo.png') }}" width="142" alt="{{ config('app.name', 'المنصة') }}"></a>
           <!-- <a class="navbar-brand d-sm-none ms-xl-2 order-lg-1" href="{{ route('home') }}">
             <img src="img/logo-icon.png" width="74" alt="{{ config('app.name', 'المنصة') }}">
           </a> -->
@@ -87,11 +87,11 @@
               <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">الرئيسية</a></li>
               @if(Auth::check())
                 @if(Auth::user()->rule == "admin")
-                <li class="nav-item"><a class="nav-link" href="{{ route('activity.index') }}">قائمة النشاطات</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">قائمة الحسابات</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{ route('activity.index') }}">قائمة النشاطات</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">قائمة الحسابات</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{ route('activity.statics') }}">الإحصائيات العامة</a></li>
                 @endif
               @endif
-              <li class="nav-item"><a class="nav-link" href="{{ route('activity.statics') }}">الإحصائيات العامة</a></li>
             </ul>
           </div>
         </div>
