@@ -37,7 +37,7 @@
             <div class="valid-tooltip">صحيح!</div>
           </div>
         </div>
-        <button class="btn btn-primary" type="submit">إنشاء الحساب</button>
+        <button class="btn btn-primary" type="submit">تسجيل الدخول</button>
       </form>
     </div>
   </section>

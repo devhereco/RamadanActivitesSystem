@@ -9,8 +9,7 @@
     <div class="container">
         <div class="row pt-md-5 justify-content-center">
             <div class="col-xl-7 col-lg-8 col-md-10 text-center py-xl-3 my-3">
-                <h1 class="text-light"><span class='fw-light'><strong>قائمة الأوراد</strong></h1>
-                <div class="py-4 py-sm-5"><a class="btn btn-primary btn-lg" id="tasks" data-scroll>عرض الأوراد</a></div>
+                <h1 class="text-light py-4 py-sm-5"><span class='fw-light'><strong>قائمة الأوراد</strong></h1>
             </div>
         </div>
     </div>
@@ -20,6 +19,7 @@
       <h2><span class='fw-light'>مرحباً</span> {{ Auth::user()->name }}</h2>
     </div>
     <div class="row pt-4">
+    {{-- <p><?php echo "Server Time " . date("Y-m-d h:i:s"); ?> (GMT) UTC +0 UK/London</p> --}}
       @forelse($activities as $activity)
         <div class="col-sm-2 mb-3">
           <a @if($activity->date < today()) href="{{route('activity.view', $activity->id)}}" @endif>
