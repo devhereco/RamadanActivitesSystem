@@ -1,4 +1,4 @@
-<div align="center"> <img src="./documentation/cover.png"/> </div>
+<div align="center"> <img src="./cover.png"/> </div>
 
 # eCommerce System - Free Software.
 # Please Do Not remove the Credits
