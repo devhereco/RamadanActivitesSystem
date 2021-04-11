@@ -25,7 +25,7 @@
           <a @if($activity->date < today()) href="{{route('activity.view', $activity->id)}}" @endif>
             @if($activity->activity != null)
               @if($activity->activity->status == 1 && $activity->activity->user_id == Auth::user()->id)
-                @if($activity->activity->created_at < $activity->date)
+                @if(date('dm', strtotime($activity->activity->created_at)) != date('dm', strtotime($activity->date)))
                   <div class="card text-warning bg-faded-warning border-warning">
                 @elseif($activity->activity->user_id == Auth::user()->id)
                   <div class="card text-success bg-faded-success border-success">
