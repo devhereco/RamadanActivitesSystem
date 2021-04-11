@@ -1,6 +1,6 @@
 <div align="center"> <img src="./cover.png"/> </div>
 
-# eCommerce System - Free Software.
+# Ramadan System - Free Software.
 
 [![license](https://badgen.net/github/license/doocs/doc-template?color=green)](https://github.com/devhereco/RamadanActivitesSystem/blob/main/Privacy.txt)
 [![stars](https://badgen.net/github/stars/doocs/doc-template)](https://github.com/devhereco/eCommerec/stargazers)
