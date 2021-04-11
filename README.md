@@ -1,7 +1,6 @@
 <div align="center"> <img src="./cover.png"/> </div>
 
 # eCommerce System - Free Software.
-# Please Do Not remove the Credits
 
 [![license](https://badgen.net/github/license/doocs/doc-template?color=green)](https://github.com/devhereco/RamadanActivitesSystem/blob/main/Privacy.txt)
 [![stars](https://badgen.net/github/stars/doocs/doc-template)](https://github.com/devhereco/eCommerec/stargazers)
