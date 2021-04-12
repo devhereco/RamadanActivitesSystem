@@ -13,19 +13,6 @@
                   <input type="hidden" name="activity_id" value="{{ $activity->id }}">
                   <div class="py-4 py-sm-5">
                     <a class="btn btn-primary btn-lg" href="{{ route('home') }}">عرض الأوراد</a>
-                    <!-- @if($activity->activity != null)
-                      @if($activity->activity->status == 1 && $activity->activity->user_id == Auth::user()->id)
-                        <a readonly class="btn btn-success btn-lg">تم الإنجاز</a>
-                      @else
-                        @if($activity->date > today()->subDays(1)->toDateTimeString())
-                          <button type="submit" class="btn btn-warning btn-lg">سجل إنجازي</button>
-                        @endif
-                      @endif
-                    @else
-                      @if($activity->date > today()->subDays(1)->toDateTimeString())
-                        <button type="submit" class="btn btn-warning btn-lg">سجل إنجازي</button>
-                      @endif
-                    @endif -->
                     <button type="submit" class="btn btn-warning btn-lg">سجل إنجازي</button>
                   </div>
                 </form>
@@ -35,10 +22,21 @@
   </section>
   <!-- Demos section-->
   <section class="container pt-5 pb-3 pb-lg-5" id="tasks">
-    <div class="text-center pt-md-4 pb-2">
-      <h2>{{ $activity->title }}</h2>
-      <p class="text-muted">{{ $activity->content }}</p>
-    </div>
+    @if($activity->isQuran != 1)
+      <div class="text-center pt-md-4 pb-2">
+        <h2>{{ $activity->title }}</h2>
+        <p class="text-muted">{!! $activity->content !!}</p>
+      </div>
+    @else
+      <div class="quran-book my-5">
+        <p class="custom-quran-start">
+          بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ
+        </p>
+        <p class="custom-quran">
+          {!! $activity->content !!}
+        </p>
+      </div>
+    @endif
 
     @if($activity->audioFile != null)
       <audio controls>
@@ -51,7 +49,7 @@
     @if($activity->youtube != null)
     <iframe 
       width="560" 
-      height="560" 
+      height="260" 
       src="https://www.youtube.com/embed/{{$activity->youtube}}" 
       title="YouTube video player" 
       frameborder="0" 

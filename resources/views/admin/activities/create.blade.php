@@ -23,8 +23,15 @@
                 <input class="form-control" name="title" type="text" id="text-input" placeholder="اليوم الأول">
             </div>
             <div class="mb-3">
-                <label for="textarea-input" class="form-label">المحتوى</label>
-                <textarea class="form-control" name="content" id="textarea-input" rows="5" placeholder="قراءة سورة الفاتحة"></textarea>
+                <label for="editor" class="form-label">المحتوى</label>
+                <textarea class="form-control" name="content" id="editor" rows="5" placeholder="قراءة سورة الفاتحة"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="select-input" class="form-label">هل المحتوى عبارة عن آيات قرآنية؟</label>
+                <select class="form-select" name="isQuran" id="select-input">
+                    <option value="1">نعم, آيات قرآنية</option>
+                    <option value="0">لا, ليست آيات قرآنية</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="text-input" class="form-label">فيديو (يوتيوب فقط)</label>
@@ -55,7 +62,15 @@
         </form>
     </div>
   </section>
-   
+
+  <script>
+    ClassicEditor
+    .create( document.querySelector( '#editor' ) )
+    .catch( error => {
+      console.error( error );
+    });
+  </script>
+
 @endsection
    
     

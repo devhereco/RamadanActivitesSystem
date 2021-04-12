@@ -12572,6 +12572,13 @@ dd {
   font-style: normal;
   font-display: block;
 }
+@font-face {
+  font-family: "quran-custom-font";
+  src: url("../fonts/quran/ArbFONTS-pdms-saleem-quranfont.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
 
 [class^='ci-'], [class*=' ci-'] {
   display: inline-block;
@@ -18341,4 +18348,27 @@ audio:nth-child(2), audio:nth-child(4), audio:nth-child(6) {
 .custom-days {
   text-align: center !important;
   font-size: 24px !important;
+}
+
+.custom-quran-start {
+  font-family: quran-custom-font !important;
+  font-size: 32px;
+  text-align: justify; 
+  text-align-last: center;
+  font-weight: 600;
+}
+.custom-quran {
+  font-family: quran-custom-font !important;
+  font-size: 32px;
+  text-align: justify; 
+  text-align-last: center;
+  margin: 0 10%;
+}
+
+.quran-book {
+  background-color: #fbfaf3;
+  border-style: double;
+  height: 500px;
+  overflow: auto;
+  margin: 0 5%;
 }

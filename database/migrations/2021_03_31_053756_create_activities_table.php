@@ -21,6 +21,8 @@ class CreateActivitiesTable extends Migration
             $table->integer('month')->nullable();
             $table->date('date');
             $table->longText('audioFile')->nullable();
+            $table->longText('day')->nullable();
+            $table->longText('isQuran ')->nullable();
             $table->integer('status')->default(1);
             $table->timestamps();
         });

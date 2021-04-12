@@ -28,6 +28,13 @@
                 <textarea class="form-control" name="content" id="textarea-input" rows="5" placeholder="قراءة سورة الفاتحة">{{ $activity->content }}</textarea>
             </div>
             <div class="mb-3">
+                <label for="select-input" class="form-label">هل المحتوى عبارة عن آيات قرآنية؟</label>
+                <select class="form-select" name="isQuran" id="select-input">
+                    <option value="1" @if($activity->status == 1) selected @endif>نعم, آيات قرآنية</option>
+                    <option value="0" @if($activity->status == 0) selected @endif>لا, ليست آيات قرآنية</option>
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="text-input" class="form-label">فيديو (يوتيوب فقط)</label>
                 <input class="form-control" name="youtube" type="text" id="text-input" placeholder="4JoDu1WbXtw" value="{{ $activity->youtube }}">
             </div>

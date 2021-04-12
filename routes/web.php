@@ -24,6 +24,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/statics', 'App\Http\Controllers\IndexController@statics')->name('activity.statics');
 });
 
+Route::view('/testing', 'testing');
+
+
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::get('/admin/activities', 'App\Http\Controllers\ActivitiesController@index')->name('activity.index');
     Route::get('/admin/activities/create', 'App\Http\Controllers\ActivitiesController@create')->name('activity.create');
